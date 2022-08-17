@@ -1,14 +1,17 @@
-md 파일은 형식 따로 없기 때문에 정리하고 싶은 내용 나열하면 돼.
 
 <학습목표>
 
 `CLI` 기반으로 수업을 진행하면서 ` CLI`를 사용해본다.
 CLI 반대 개념은 `GUI` 기반으로 마우스를 사용해서 finder나 파일탐색기를 통해 file과 directory에 접근하는 것이다. CLI는 키보드로만 제어한다. 
 
+CLI : Command-Line Interface
+GUI : Graphical User Interface
 
 
  * 데이터 사이언티스트가 왜 git을 사용해야할까?
   > 데이터 분석에 대한 소스코드를 남길 수 있기 때문이다.
+
+ * `git`은 도구, `github`는 웹서비스로 저장소 역할
 
 
 
@@ -53,12 +56,44 @@ CLI 반대 개념은 `GUI` 기반으로 마우스를 사용해서 finder나 파�
 저장하고 나갈 때는 `shift + ;` -> :wq
 저장하지 않고 나갈 때는 `shift + ;` -> :q!
 
-
-<commit>
+<cat>
 `cat` 파일이름 : 들어가지 않고 텍스트 파일을 shell에서 뿌려 보고싶을 때 사용한다.
     > cat : concatenated(?) (연결의)
 
- 
+
+<2가지 가상환경>
+staging과 localrepo
+									
+working directory -------------> `staging` --------------> `localrepo` -------------> remote repo
+		    `git add`		    `git commit`    		`git push`	
+
+<git의 환경설정>
+$ git config --global user.name "당신의유저네임"
+$ git config --global user.email "당신의메일주소"
+$ git config --global core.editor "vim"
+$ git config --global core.pager "cat"
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+
+<repo 만들기>
+<1. git init>
+shell에서 repo 만들기
+	주의> Do not `git init` on any other directories : 한 디렉토리를 git 전용으로 써버린다.
+<2. git clone>
+github에서 저장소(remote)를 만들고 통째로 내 컴퓨터로 복사
+
+<git status>
+untracked files : git이 여태까지 모르던 새로운 파일이 생겼다는 의미
+
+<git add status>
+
+<first git push origin main>
+github에서 token만들기, 체크박스 모두 체크
+shell에서 username & password(token값 입력)
+
+
+* repo에서 파일만들고 저장하기
+git add 파일 -> git status > new file ->  vim 파일 열고 작성 -> git commit -> git status -> git push origin main > main 성공
+
 
 
 
